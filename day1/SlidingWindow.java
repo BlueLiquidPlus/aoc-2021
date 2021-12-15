@@ -27,19 +27,19 @@ public class SlidingWindow {
             BufferedReader read = new BufferedReader(new FileReader(fileName));
             String line = read.readLine();
             ArrayList<Integer> slide = new ArrayList<Integer>();
-            slide.add(Integer.parseInt(line));
             do{
                 slide.add(Integer.parseInt(line));
                 line = read.readLine();
             }while(line != null); //This should load the entire arraylist with the input
             //System.out.println(slide.get(0)); //188 (confirmed)
+            //System.out.println(slide.get(1)); //192 (confirmed)
             //System.out.println(slide.get(slide.size()-1)); //8710 (confirmed)
-            //System.out.println(slide.size()-1); //2000 (confirmed)
+            //System.out.println(slide.size()); //2000 (confirmed)
 
             int sum = 0;
             int sum2 = 0;
             int count = 0;
-            for(int i = 1;i<slide.size()-1;i++){
+            for(int i = 0;i<slide.size();i++){
                 if(i<slide.size()-3){ 
                     sum = slide.get(i);
                     sum += slide.get(i+1);
@@ -68,3 +68,6 @@ public class SlidingWindow {
 
     }
 }
+
+
+//Result should be 1683
